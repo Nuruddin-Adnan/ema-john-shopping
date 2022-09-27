@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import Header from '../Header/Header';
-import Products from '../Products/Products';
+import Product from '../Product/Product';
 
 
 const Shop = () => {
@@ -25,7 +25,9 @@ const Shop = () => {
             <div className="container mx-auto">
                 <div className="flex">
                     <div className='product-container'>
-                        <Products products={products} handleAddToCart={handleAddToCart}></Products>
+                        <div className='grid lg:grid-cols-3 grid-cols-2 gap-6 my-10'>
+                            {products.map(product => <Product product={product} handleAddToCart={handleAddToCart} key={product.id}></Product>)}
+                        </div>
                     </div>
                     <div className="shrink-0 ml-6 cart-container">
                         <Cart cart={cart}></Cart>
